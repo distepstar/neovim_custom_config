@@ -14,6 +14,24 @@ vim.cmd([[
 return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  -- LSP Configs
+  use 'neovim/nvim-lspconfig'             -- lspconfig
+  use "ray-x/lsp_signature.nvim"          -- lsp_signature
+  use 'onsails/lspkind.nvim'              -- lspkind
+  -- mason
+  use "williamboman/mason.nvim"           -- language server installer
+  use "williamboman/mason-lspconfig.nvim" -- mason-lspconfig
+  -- cmp
+  use 'hrsh7th/nvim-cmp'                  -- cmp for autocompletion
+  use 'hrsh7th/cmp-nvim-lsp'              -- cmplsp
+  -- snippets
+  use 'saadparwaiz1/cmp_luasnip'          -- snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip'                  -- snippet plug
+  -- treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }                              -- nvim-treesitter
   -- Performance
   use 'lewis6991/impatient.nvim' -- impatient
   use {                          -- better-escape
@@ -23,7 +41,6 @@ return packer.startup(function(use)
     end,
   }
   use 'antoinemadec/FixCursorHold.nvim'
-
   -- core utilities
   use 'nvim-tree/nvim-web-devicons' -- webdevicon
   use {
@@ -55,17 +72,32 @@ return packer.startup(function(use)
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 300
+      vim.o.timeoutlen = 200
     end
   }
 
   -- edit support
   use { 'kevinhwang91/nvim-hlslens' }
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    config = function()
+      require("barbecue").setup({
+        create_autocmd = false,
+        attach_navic = false,
+      })
+    end,
+  })
   use { -- autopairs
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
   use 'ethanholz/nvim-lastplace' -- lastplace
+  use "lukas-reineke/indent-blankline.nvim"
   use {                          -- yanky
     'gbprod/yanky.nvim',
     config = function()

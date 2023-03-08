@@ -1,16 +1,9 @@
 local hasLuaLine, lualine = pcall(require, 'lualine')
 
-if not hasLualine then
-  return
-end
+if not hasLuaLine then return end
 
-lualine.setup
-{
+lualine.setup({
   options = {
-    theme='powerline'
-  },
-  section = {
-    lualine_y = {''},
-    lualine_z = {'location', 'progress'},
+    theme = "powerline"
   }
-}
+})

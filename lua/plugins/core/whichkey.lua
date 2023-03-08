@@ -45,7 +45,7 @@ wk.register({
       [","] = { ":nohl<CR>", "Clear search highlighting" },
 }, { prefix = "<leader>", nowait = true })
 
-wk.register({
+wk.register({ -- navigation
   l = { "$", "Goto end of the line" },
   h = { "^", "Goto start of the line" },
 }, { prefix = "g" })
