@@ -34,6 +34,9 @@ opt.history = 100     -- Remember N lines in history
 opt.lazyredraw = true -- Faster scrolling
 opt.synmaxcol = 240   -- Max column for syntax highlight
 opt.updatetime = 200
+opt.incsearch = false
+vim.wo.signcolumn = 'yes'
+
 
 
 -- -- Disable builtin plugins

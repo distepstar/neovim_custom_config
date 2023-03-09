@@ -38,7 +38,13 @@ wk.register({
   r = { ":NvimTreeRefresh<cr>", "Refresh Nvim Tree File Explorer" },
   n = { ":NvimTreeFindFile<cr>", "Find File in Nvim Tree File Explorer" },
   -- Term
-  t = { ":Term<cr>", "Open terminal in new split window" },
+  s = {
+    name = "Terminal",
+    t = {":ToggleTerm<cr>", "Toggle Single Terminal"},
+    T = {":ToggleTerm ", "Toggle Number Terminal"},
+    a = {":ToggleTermToggleAll<cr>", "Toggle All Terminal"},
+    s = {":ToggleTermSendCurrentLine<cr>", "Send current line to terminal"},
+  },
   -- Buffers
   c = { ":BufferClose<cr>", "Close current buffer" },
   q = { ":qa<cr>", "Exit" },

@@ -12,12 +12,24 @@ vim.cmd([[
 ]])
 
 return packer.startup(function(use)
-  -- Packer can manage itself
+  ------------ Packer ------------
   use 'wbthomason/packer.nvim'
-  -- LSP Configs
-  use 'neovim/nvim-lspconfig'             -- lspconfig
-  use "ray-x/lsp_signature.nvim"          -- lsp_signature
-  use 'onsails/lspkind.nvim'              -- lspkind
+  ------------ Packer ------------
+
+
+  ------------ LSP Configs ------------
+  use 'neovim/nvim-lspconfig'    -- lspconfig
+  use "ray-x/lsp_signature.nvim" -- lsp_signature
+  use 'onsails/lspkind.nvim'     -- lspkind
+  use {                          -- lsp error hints
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  }
+  use { -- lsp error hints
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+    end
+  }
   -- mason
   use "williamboman/mason.nvim"           -- language server installer
   use "williamboman/mason-lspconfig.nvim" -- mason-lspconfig
@@ -31,8 +43,10 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-  }                              -- nvim-treesitter
-  -- Performance
+  } -- nvim-treesitter
+  ------------ LSP Configs ------------
+
+  ------------ Performance ------------
   use 'lewis6991/impatient.nvim' -- impatient
   use {                          -- better-escape
     "max397574/better-escape.nvim",
@@ -41,7 +55,10 @@ return packer.startup(function(use)
     end,
   }
   use 'antoinemadec/FixCursorHold.nvim'
-  -- core utilities
+  ------------ Performance ------------
+
+
+  ------------ Core Utilities ------------
   use 'nvim-tree/nvim-web-devicons' -- webdevicon
   use {
     'nvim-tree/nvim-tree.lua',
@@ -56,16 +73,6 @@ return packer.startup(function(use)
   use {                                                                                          -- dashboard
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
-    config = function()
-      require('dashboard').setup {
-        config = {
-          theme = 'hyper',
-          week_header = {
-            enable = true,
-          },
-        }
-      }
-    end,
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use { -- which-key
@@ -75,10 +82,20 @@ return packer.startup(function(use)
       vim.o.timeoutlen = 200
     end
   }
+  -- git
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+  ------------ Core Utilities ------------
 
-  -- edit support
+
+  ------------ Edit Support ------------
   use { 'kevinhwang91/nvim-hlslens' }
   use({
+    --barbecue
     "utilyre/barbecue.nvim",
     tag = "*",
     requires = {
@@ -92,13 +109,17 @@ return packer.startup(function(use)
       })
     end,
   })
-  use { -- autopairs
+  use {            -- motion
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
+  use {            -- autopairs
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
-  use 'ethanholz/nvim-lastplace' -- lastplace
-  use "lukas-reineke/indent-blankline.nvim"
-  use {                          -- yanky
+  use 'ethanholz/nvim-lastplace'            -- lastplace
+  use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+  use {                                     -- yanky
     'gbprod/yanky.nvim',
     config = function()
       require("yanky").setup()
@@ -110,10 +131,25 @@ return packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  -- animation
+  use { "akinsho/toggleterm.nvim", tag = '*'}
+  ------------ Edit Support ------------
+
+
+  ------------ Animation ------------
   use 'yamatsum/nvim-cursorline' -- cursorline
-  -- layout manage
-  use({                          -- legendary, keymaps tables
+  ------------ Animation ------------
+
+
+  ------------ Layout ------------
+  use { -- code window
+    'gorbit99/codewindow.nvim',
+    config = function()
+      local codewindow = require('codewindow')
+      codewindow.setup()
+      codewindow.apply_default_keybinds()
+    end,
+  }
+  use({ -- legendary, keymaps tables
     'mrjones2014/legendary.nvim',
     -- sqlite is only needed if you want to use frecency sorting
     -- requires = 'kkharji/sqlite.lua'
@@ -124,6 +160,10 @@ return packer.startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  -- theme
+  ------------ Layout ------------
+
+
+  ------------ Theme ------------
   use 'marko-cerovac/material.nvim' -- materialnvim
+  ------------ Theme ------------
 end)
