@@ -60,23 +60,20 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'vsnip' },
     { name = 'luasnip' },
-  }, {
     { name = 'buffer' }
   }),
 }
-
--- cmp.setup.cmdline(':', {
---   mapping = cmp.mapping.preset.cmdline({
 --
---   }), -- important!
---   sources = {
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(), -- important!
+--   sources = cmp.config.sources({
 --     { name = 'nvim_lua' },
 --     { name = 'cmdline' },
---   },
+--   }),
 -- })
--- cmp.setup.cmdline('/', {
---   mapping = cmp.mapping.preset.cmdline(), -- important!
---   sources = {
---     { name = 'buffer' },
---   },
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = 'buffer' }
+--   })
 -- })

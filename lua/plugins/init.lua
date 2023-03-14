@@ -101,6 +101,7 @@ return packer.startup(function(use)
   use { 'kevinhwang91/nvim-hlslens' }
   use 'mg979/vim-visual-multi'
 
+  use "rktjmp/highlight-current-n.nvim"
   use({
     --barbecue
     "utilyre/barbecue.nvim",
