@@ -24,6 +24,7 @@ require('plugins/core/toggleterm') -- whichkey
 require('plugins/core/vgit') -- git
 
 -- edit support
+require('plugins/editUtil/wilder')    -- lastplace
 require('plugins/editUtil/lastplace') -- lastplace
 require('plugins/editUtil/hop')       -- hop
 require('plugins/editUtil/hlslens')   -- hlslens
