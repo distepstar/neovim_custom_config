@@ -12,7 +12,7 @@ opt.swapfile = false
 opt.completeopt = 'menuone,noinsert,noselect'
 
 -- UI
-opt.relativenumber = true -- Show line number
+opt.number = true         -- Show line number
 opt.showmatch = true      -- Highlight matching parenthesis
 opt.foldmethod = 'marker' -- Enable folding (default 'foldmarker')
 opt.splitright = true     -- Vertical split to the right
@@ -32,6 +32,7 @@ opt.smartindent = true
 -- Memory, CPU
 opt.hidden = true     -- Enable background buffers
 opt.history = 100     -- Remember N lines in history
+opt.ttyfast = true
 opt.lazyredraw = true -- Faster scrolling
 opt.synmaxcol = 240   -- Max column for syntax highlight
 opt.updatetime = 200
