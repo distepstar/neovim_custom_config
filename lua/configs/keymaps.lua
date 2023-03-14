@@ -6,6 +6,18 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+
+-- Indent fix on insert
+vim.cmd [[function! IndentWithI()
+    if len(getline('.')) == 0
+        return "\"_cc"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()]]
+
+
 -- Change leader to a comma
 vim.g.mapleader = ' '
 
@@ -47,12 +59,11 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
 -- Better yank
-vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)")
-vim.keymap.set({"n", "x"}, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set({"n", "x"}, "gp", "<Plug>(YankyGPutAfter)")
-vim.keymap.set({"n", "x"}, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 
 
 -- Kakoune like keymaps
-map('x', '<S-v>', 'j')     -- select multiple line below in x mode
-
+map('x', '<S-v>', 'j') -- select multiple line below in x mode

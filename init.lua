@@ -18,10 +18,10 @@ require('plugins/core/legendary')  -- legendary
 require('plugins/core/telescope')  -- telescope
 require('plugins/core/dressing')   -- dressing
 require('plugins/core/whichkey')   -- whichkey
-require('plugins/core/toggleterm')   -- whichkey
+require('plugins/core/toggleterm') -- whichkey
 
 -- git
-require('plugins/core/vgit')   -- git
+require('plugins/core/vgit') -- git
 
 -- edit support
 require('plugins/editUtil/lastplace') -- lastplace
@@ -35,4 +35,3 @@ require('plugins/animation/cursorline') -- cursorline
 -- theme
 require('plugins/theme/material')
 require('plugins/theme/dashboard')
-

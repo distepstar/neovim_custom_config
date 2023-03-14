@@ -21,7 +21,12 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'    -- lspconfig
   use "ray-x/lsp_signature.nvim" -- lsp_signature
   use 'onsails/lspkind.nvim'     -- lspkind
-  use {                          -- lsp error hints
+
+
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'MunifTanjim/prettier.nvim'
+
+  use { -- lsp error hints
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   }
   use { -- lsp error hints
@@ -94,6 +99,8 @@ return packer.startup(function(use)
 
   ------------ Edit Support ------------
   use { 'kevinhwang91/nvim-hlslens' }
+  use 'mg979/vim-visual-multi'
+
   use({
     --barbecue
     "utilyre/barbecue.nvim",
@@ -131,7 +138,7 @@ return packer.startup(function(use)
       require('Comment').setup()
     end
   }
-  use { "akinsho/toggleterm.nvim", tag = '*'}
+  use { "akinsho/toggleterm.nvim", tag = '*' }
   ------------ Edit Support ------------
 
 
@@ -161,7 +168,6 @@ return packer.startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   ------------ Layout ------------
-
 
   ------------ Theme ------------
   use 'marko-cerovac/material.nvim' -- materialnvim

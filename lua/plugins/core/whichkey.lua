@@ -40,10 +40,10 @@ wk.register({
   -- Term
   s = {
     name = "Terminal",
-    t = {":ToggleTerm<cr>", "Toggle Single Terminal"},
-    T = {":ToggleTerm ", "Toggle Number Terminal"},
-    a = {":ToggleTermToggleAll<cr>", "Toggle All Terminal"},
-    s = {":ToggleTermSendCurrentLine<cr>", "Send current line to terminal"},
+    t = { ":ToggleTerm<cr>", "Toggle Single Terminal" },
+    T = { ":ToggleTerm ", "Toggle Number Terminal" },
+    a = { ":ToggleTermToggleAll<cr>", "Toggle All Terminal" },
+    s = { ":ToggleTermSendCurrentLine<cr>", "Send current line to terminal" },
   },
   -- Buffers
   c = { ":BufferClose<cr>", "Close current buffer" },
@@ -51,7 +51,8 @@ wk.register({
       [","] = { ":nohl<CR>", "Clear search highlighting" },
 }, { prefix = "<leader>", nowait = true })
 
-wk.register({ -- navigation
+wk.register({
+              -- navigation
   l = { "$", "Goto end of the line" },
   h = { "^", "Goto start of the line" },
 }, { prefix = "g" })

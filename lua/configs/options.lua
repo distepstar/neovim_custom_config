@@ -4,6 +4,7 @@ local opt = vim.opt
 -- colorscheme
 g.material_style = "deep ocean"
 vim.cmd 'colorscheme material'
+
 -- General
 opt.mouse = 'a' -- enable mouse
 opt.clipboard = 'unnamedplus'
@@ -36,8 +37,14 @@ opt.synmaxcol = 240   -- Max column for syntax highlight
 opt.updatetime = 200
 opt.incsearch = false
 vim.wo.signcolumn = 'yes'
-
-
+-- multi-cursor
+vim.cmd([[
+    aug VMlens
+        au!
+        au User visual_multi_start lua require('plugins/editUtil/vmlens').start()
+        au User visual_multi_exit lua require('plugins/editUtil/vmlens').exit()
+    aug END
+]])
 
 -- -- Disable builtin plugins
 local disabled_built_ins = {
