@@ -36,6 +36,7 @@ opt.ttyfast = true
 opt.lazyredraw = true -- Faster scrolling
 opt.synmaxcol = 240   -- Max column for syntax highlight
 opt.updatetime = 200
+opt.re = 1
 -- opt.incsearch = false
 vim.wo.signcolumn = 'yes'
 -- multi-cursor

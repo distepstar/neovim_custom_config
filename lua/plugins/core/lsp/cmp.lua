@@ -28,22 +28,25 @@ local stab_key = cmp.mapping(function(fallback)
 end, { 'i', 's' })
 
 cmp.setup {
+  completion = {
+    autocomplete = false
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
     -- C-b (back) C-f (forward) for snippet placeholder navigation.
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm {
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-        ['<Tab>'] = tab_key,
-        ['<S-Tab>'] = stab_key,
+    ['<Tab>'] = tab_key,
+    ['<S-Tab>'] = stab_key,
   }),
   formatting = {
     format = lspkind.cmp_format({
@@ -63,6 +66,15 @@ cmp.setup {
     { name = 'buffer' }
   }),
 }
+
+
+-- debounce
+vim.cmd([[
+  augroup CmpDebounceAuGroup
+    au!
+    au TextChangedI * lua require("utils.debounce").debounce()
+  augroup end
+]])
 --
 -- cmp.setup.cmdline(':', {
 --   mapping = cmp.mapping.preset.cmdline(), -- important!

@@ -29,8 +29,6 @@ map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
 -- Map Esc to kk
-map('i', 'jj', '<Esc>')
-map('i', 'kk', '<Esc>')
 
 -- Move block of code top down
 map("x", "K", ":move '<-2<CR>gv-gv")

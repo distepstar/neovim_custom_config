@@ -10,7 +10,32 @@ if not hasBuiltin then
 end
 
 wk.register({
-  -- core utils
+  -- Buffers
+  c = { ":BufferClose<cr>", "Close current buffer" },
+  -- NvimTree
+  e = { ":NvimTreeToggle<cr>", "Toggle Nvim Tree File Explorer" },
+  r = { ":NvimTreeRefresh<cr>", "Refresh Nvim Tree File Explorer" },
+  n = { ":NvimTreeFindFile<cr>", "Find File in Nvim Tree File Explorer" },
+  -- Telescope
+  f = {
+    name = "Telescope",
+    f = { builtin.find_files, "Telescope find file" },
+    g = { builtin.live_grep, "Telescope live grep" },
+    b = { builtin.buffers, "Telescope find buffers" },
+    h = { builtin.help_tags, "Telescope help tags" },
+  },
+  -- Goto
+  g = {
+    name = "Goto",
+    D = { vim.lsp.buf.declaration, "Declaration" },
+    d = { vim.lsp.buf.definition, "Definition" },
+    i = { vim.lsp.buf.implementiation, "Implementation" },
+  },
+  -- Legendary
+  k = {
+    name = "Legendary",
+    m    = { ":Legendary<cr>", "View all keymaps" }
+  },
   -- Packer
   p = {
     name = "Packer",
@@ -20,23 +45,6 @@ wk.register({
     c = { ":PackerCompile<cr>", "Packer Compile" },
     d = { ":PackerClean<cr>", "Packer Clean" },
   },
-  -- Legendary
-  k = {
-    name = "Legendary",
-    m    = { ":Legendary<cr>", "View all keymaps" }
-  },
-  -- Telescope
-  f = {
-    name = "Telescope",
-    f = { builtin.find_files, "Telescope find file" },
-    g = { builtin.live_grep, "Telescope live grep" },
-    b = { builtin.buffers, "Telescope find buffers" },
-    h = { builtin.help_tags, "Telescope help tags" },
-  },
-  -- NvimTree
-  e = { ":NvimTreeToggle<cr>", "Toggle Nvim Tree File Explorer" },
-  r = { ":NvimTreeRefresh<cr>", "Refresh Nvim Tree File Explorer" },
-  n = { ":NvimTreeFindFile<cr>", "Find File in Nvim Tree File Explorer" },
   -- Term
   s = {
     name = "Terminal",
@@ -45,14 +53,12 @@ wk.register({
     a = { ":ToggleTermToggleAll<cr>", "Toggle All Terminal" },
     s = { ":ToggleTermSendCurrentLine<cr>", "Send current line to terminal" },
   },
-  -- Buffers
-  c = { ":BufferClose<cr>", "Close current buffer" },
-  q = { ":qa<cr>", "Exit" },
-      [","] = { ":nohl<CR>", "Clear search highlighting" },
+  q = { ":qa<cr>", "Exit" }, -- qa
+  [","] = { ":nohl<CR>", "Clear search highlighting" },
 }, { prefix = "<leader>", nowait = true })
 
 wk.register({
-              -- navigation
+  -- navigation
   l = { "$", "Goto end of the line" },
   h = { "^", "Goto start of the line" },
 }, { prefix = "g" })

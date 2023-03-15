@@ -65,12 +65,6 @@ return packer.startup(function(use)
 
   ------------ Performance ------------
   use 'lewis6991/impatient.nvim' -- impatient
-  use {                          -- better-escape
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup()
-    end,
-  }
   use 'antoinemadec/FixCursorHold.nvim'
   ------------ Performance ------------
 
@@ -110,6 +104,7 @@ return packer.startup(function(use)
 
 
   ------------ Edit Support ------------
+  use { "max397574/better-escape.nvim" }
   use { 'gelguy/wilder.nvim' }
   use { 'kevinhwang91/nvim-hlslens' }   -- better highlight for search results
   use 'mg979/vim-visual-multi'          -- multi-cursor

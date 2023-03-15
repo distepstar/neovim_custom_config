@@ -25,12 +25,6 @@ local on_attach = function(client, bufnr)
   wk.register({
     l = {
       name = "Lsp",
-      g = {
-        name = "Goto",
-        D = { vim.lsp.buf.declaration, "Declaration" },
-        d = { vim.lsp.buf.definition, "Definition" },
-        i = { vim.lsp.buf.implementiation, "Implementation" },
-      },
       s = { vim.lsp.buf.signature_help, "Signature Help" },
       w = {
         name = "Workspace",
